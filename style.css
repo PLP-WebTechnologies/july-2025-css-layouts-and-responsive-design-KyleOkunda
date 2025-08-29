@@ -1,0 +1,109 @@
+/* --- Base Styles and Responsive Units --- */
+:root {
+  --primary-color: #a96e49; /* A warm, bakery-like brown */
+  --secondary-color: #f8f4ea; /* A creamy, off-white */
+  --accent-color: #6a442a;
+  --background-color: #fcf8f0;
+  --card-bg-color: #ffffff;
+  --text-color: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.header,
+.footer {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+/* --- Flexbox for Navigation and Cards --- */
+.navbar {
+  background-color: var(--accent-color);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: center;
+  padding: 1rem;
+}
+
+.nav-list li a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-list li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cards-container {
+  display: flex; /* Flexbox for card layout */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line */
+  gap: 1.5rem; /* Space between cards */
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 250px; /* Flex-grow, flex-shrink, and a base width for responsiveness */
+  max-width: 100%;
+  text-align: center;
+}
+
+/* --- CSS Grid for Main Layout --- */
+.main-container {
+  display: grid; /* Grid for the main page layout */
+  grid-template-columns: 1fr; /* Default to a single column for mobile */
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.sidebar {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Media Queries for Responsive Design --- */
+
+/* Tablet and Desktop View (min-width: 768px) */
+@media (min-width: 768px) {
+  .main-container {
+    grid-template-columns: 3fr 1fr; /* Two columns: content and sidebar */
+    gap: 2.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the main content */
+  }
+}
